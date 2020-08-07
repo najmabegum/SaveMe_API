@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_SaveMeTrackerModelStoreContainer" CdmEntityContainer="db_SaveMeTrackerEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyExpenses">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.DailyExpense">
+        <MappingFragment StoreEntitySet="DailyExpense">
+          <ScalarProperty Name="CurrentYear" ColumnName="CurrentYear" />
+          <ScalarProperty Name="CurrentMonth" ColumnName="CurrentMonth" />
+          <ScalarProperty Name="CurrentWeek" ColumnName="CurrentWeek" />
+          <ScalarProperty Name="DailyExpenseID" ColumnName="DailyExpenseID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginDetails">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.LoginDetail">
+        <MappingFragment StoreEntitySet="LoginDetails">
+          <ScalarProperty Name="LoginDetailsID" ColumnName="LoginDetailsID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlySavings">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.MonthlySaving">
+        <MappingFragment StoreEntitySet="MonthlySavings">
+          <ScalarProperty Name="MonthlySavingsID" ColumnName="MonthlySavingsID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CurrentMonth" ColumnName="CurrentMonth" />
+          <ScalarProperty Name="CurrentYear" ColumnName="CurrentYear" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RemoteWeeklyExpenseDetails">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.RemoteWeeklyExpenseDetail">
+        <MappingFragment StoreEntitySet="RemoteWeeklyExpenseDetails">
+          <ScalarProperty Name="RemoteWeeklyExpenseDetailsID" ColumnName="RemoteWeeklyExpenseDetailsID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="WeeklyExpenseDetailsID" ColumnName="WeeklyExpenseDetailsID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="UpdatedWeek" ColumnName="UpdatedWeek" />
+          <ScalarProperty Name="UpdatedMonth" ColumnName="UpdatedMonth" />
+          <ScalarProperty Name="UpdatedYear" ColumnName="UpdatedYear" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotalSavings">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.TotalSaving">
+        <MappingFragment StoreEntitySet="TotalSavings">
+          <ScalarProperty Name="TotalSavingsID" ColumnName="TotalSavingsID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDatas">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.UserData">
+        <MappingFragment StoreEntitySet="UserData">
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="NumberMembersInFamily" ColumnName="NumberMembersInFamily" />
+          <ScalarProperty Name="NumberKidsInFamily" ColumnName="NumberKidsInFamily" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklyExpenseDetails">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.WeeklyExpenseDetail">
+        <MappingFragment StoreEntitySet="WeeklyExpenseDetails">
+          <ScalarProperty Name="WeeklyExpenseDetailsID" ColumnName="WeeklyExpenseDetailsID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CurrentWeek" ColumnName="CurrentWeek" />
+          <ScalarProperty Name="CurrentMonth" ColumnName="CurrentMonth" />
+          <ScalarProperty Name="CurrentYear" ColumnName="CurrentYear" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklySavings">
+      <EntityTypeMapping TypeName="db_SaveMeTrackerModel.WeeklySaving">
+        <MappingFragment StoreEntitySet="WeeklySavings">
+          <ScalarProperty Name="WeeklySavingsID" ColumnName="WeeklySavingsID" />
+          <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CurrentWeek" ColumnName="CurrentWeek" />
+          <ScalarProperty Name="CurrentMonth" ColumnName="CurrentMonth" />
+          <ScalarProperty Name="CurrentYear" ColumnName="CurrentYear" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModiﬁed" ColumnName="DateModiﬁed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

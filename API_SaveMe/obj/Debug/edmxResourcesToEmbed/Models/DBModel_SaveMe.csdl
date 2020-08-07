@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_SaveMeTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DailyExpenses" Relationship="Self.FK__DailyExpe__Categ__3E52440B" FromRole="Categories" ToRole="DailyExpense" />
+    <NavigationProperty Name="MonthlySavings" Relationship="Self.FK__MonthlySa__Categ__49C3F6B7" FromRole="Categories" ToRole="MonthlySavings" />
+    <NavigationProperty Name="RemoteWeeklyExpenseDetails" Relationship="Self.FK__RemoteWee__Categ__5070F446" FromRole="Categories" ToRole="RemoteWeeklyExpenseDetails" />
+    <NavigationProperty Name="WeeklyExpenseDetails" Relationship="Self.FK__WeeklyExp__Categ__4222D4EF" FromRole="Categories" ToRole="WeeklyExpenseDetails" />
+    <NavigationProperty Name="WeeklySavings" Relationship="Self.FK__WeeklySav__Categ__45F365D3" FromRole="Categories" ToRole="WeeklySavings" />
+  </EntityType>
+  <EntityType Name="DailyExpense">
+    <Key>
+      <PropertyRef Name="DailyExpenseID" />
+    </Key>
+    <Property Name="DailyExpenseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__DailyExpe__Categ__3E52440B" FromRole="DailyExpense" ToRole="Categories" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__DailyExpe__UserD__3D5E1FD2" FromRole="DailyExpense" ToRole="UserData" />
+    <Property Name="CurrentWeek" Type="Int32" />
+    <Property Name="CurrentMonth" Type="Int32" />
+    <Property Name="CurrentYear" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LoginDetail">
+    <Key>
+      <PropertyRef Name="LoginDetailsID" />
+    </Key>
+    <Property Name="LoginDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__LoginDeta__UserD__38996AB5" FromRole="LoginDetails" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="MonthlySaving">
+    <Key>
+      <PropertyRef Name="MonthlySavingsID" />
+    </Key>
+    <Property Name="MonthlySavingsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="CurrentMonth" Type="Int32" Nullable="false" />
+    <Property Name="CurrentYear" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__MonthlySa__Categ__49C3F6B7" FromRole="MonthlySavings" ToRole="Categories" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__MonthlySa__UserD__48CFD27E" FromRole="MonthlySavings" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="RemoteWeeklyExpenseDetail">
+    <Key>
+      <PropertyRef Name="RemoteWeeklyExpenseDetailsID" />
+    </Key>
+    <Property Name="RemoteWeeklyExpenseDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="WeeklyExpenseDetailsID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="UpdatedWeek" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedMonth" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedYear" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__RemoteWee__Categ__5070F446" FromRole="RemoteWeeklyExpenseDetails" ToRole="Categories" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__RemoteWee__UserD__4F7CD00D" FromRole="RemoteWeeklyExpenseDetails" ToRole="UserData" />
+    <NavigationProperty Name="WeeklyExpenseDetail" Relationship="Self.FK__RemoteWee__Weekl__5165187F" FromRole="RemoteWeeklyExpenseDetails" ToRole="WeeklyExpenseDetails" />
+  </EntityType>
+  <EntityType Name="TotalSaving">
+    <Key>
+      <PropertyRef Name="TotalSavingsID" />
+    </Key>
+    <Property Name="TotalSavingsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__TotalSavi__UserD__4CA06362" FromRole="TotalSavings" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="UserData">
+    <Key>
+      <PropertyRef Name="UserDataID" />
+    </Key>
+    <Property Name="UserDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumberMembersInFamily" Type="Int32" Nullable="false" />
+    <Property Name="NumberKidsInFamily" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DailyExpenses" Relationship="Self.FK__DailyExpe__UserD__3D5E1FD2" FromRole="UserData" ToRole="DailyExpense" />
+    <NavigationProperty Name="LoginDetails" Relationship="Self.FK__LoginDeta__UserD__38996AB5" FromRole="UserData" ToRole="LoginDetails" />
+    <NavigationProperty Name="MonthlySavings" Relationship="Self.FK__MonthlySa__UserD__48CFD27E" FromRole="UserData" ToRole="MonthlySavings" />
+    <NavigationProperty Name="RemoteWeeklyExpenseDetails" Relationship="Self.FK__RemoteWee__UserD__4F7CD00D" FromRole="UserData" ToRole="RemoteWeeklyExpenseDetails" />
+    <NavigationProperty Name="TotalSavings" Relationship="Self.FK__TotalSavi__UserD__4CA06362" FromRole="UserData" ToRole="TotalSavings" />
+    <NavigationProperty Name="WeeklyExpenseDetails" Relationship="Self.FK__WeeklyExp__UserD__412EB0B6" FromRole="UserData" ToRole="WeeklyExpenseDetails" />
+    <NavigationProperty Name="WeeklySavings" Relationship="Self.FK__WeeklySav__UserD__44FF419A" FromRole="UserData" ToRole="WeeklySavings" />
+  </EntityType>
+  <EntityType Name="WeeklyExpenseDetail">
+    <Key>
+      <PropertyRef Name="WeeklyExpenseDetailsID" />
+    </Key>
+    <Property Name="WeeklyExpenseDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="CurrentWeek" Type="Int32" Nullable="false" />
+    <Property Name="CurrentMonth" Type="Int32" Nullable="false" />
+    <Property Name="CurrentYear" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__WeeklyExp__Categ__4222D4EF" FromRole="WeeklyExpenseDetails" ToRole="Categories" />
+    <NavigationProperty Name="RemoteWeeklyExpenseDetails" Relationship="Self.FK__RemoteWee__Weekl__5165187F" FromRole="WeeklyExpenseDetails" ToRole="RemoteWeeklyExpenseDetails" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__WeeklyExp__UserD__412EB0B6" FromRole="WeeklyExpenseDetails" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="WeeklySaving">
+    <Key>
+      <PropertyRef Name="WeeklySavingsID" />
+    </Key>
+    <Property Name="WeeklySavingsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="CurrentWeek" Type="Int32" Nullable="false" />
+    <Property Name="CurrentMonth" Type="Int32" Nullable="false" />
+    <Property Name="CurrentYear" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModiﬁed" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__WeeklySav__Categ__45F365D3" FromRole="WeeklySavings" ToRole="Categories" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__WeeklySav__UserD__44FF419A" FromRole="WeeklySavings" ToRole="UserData" />
+  </EntityType>
+  <Association Name="FK__DailyExpe__Categ__3E52440B">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="DailyExpense" Type="Self.DailyExpense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DailyExpense">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MonthlySa__Categ__49C3F6B7">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="MonthlySavings" Type="Self.MonthlySaving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="MonthlySavings">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RemoteWee__Categ__5070F446">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="RemoteWeeklyExpenseDetails" Type="Self.RemoteWeeklyExpenseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="RemoteWeeklyExpenseDetails">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeeklyExp__Categ__4222D4EF">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="WeeklyExpenseDetails" Type="Self.WeeklyExpenseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="WeeklyExpenseDetails">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeeklySav__Categ__45F365D3">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="WeeklySavings" Type="Self.WeeklySaving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="WeeklySavings">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DailyExpe__UserD__3D5E1FD2">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="DailyExpense" Type="Self.DailyExpense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="DailyExpense">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginDeta__UserD__38996AB5">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="LoginDetails" Type="Self.LoginDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="LoginDetails">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MonthlySa__UserD__48CFD27E">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="MonthlySavings" Type="Self.MonthlySaving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="MonthlySavings">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RemoteWee__UserD__4F7CD00D">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="RemoteWeeklyExpenseDetails" Type="Self.RemoteWeeklyExpenseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="RemoteWeeklyExpenseDetails">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RemoteWee__Weekl__5165187F">
+    <End Role="WeeklyExpenseDetails" Type="Self.WeeklyExpenseDetail" Multiplicity="1" />
+    <End Role="RemoteWeeklyExpenseDetails" Type="Self.RemoteWeeklyExpenseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WeeklyExpenseDetails">
+        <PropertyRef Name="WeeklyExpenseDetailsID" />
+      </Principal>
+      <Dependent Role="RemoteWeeklyExpenseDetails">
+        <PropertyRef Name="WeeklyExpenseDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TotalSavi__UserD__4CA06362">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="TotalSavings" Type="Self.TotalSaving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="TotalSavings">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeeklyExp__UserD__412EB0B6">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="WeeklyExpenseDetails" Type="Self.WeeklyExpenseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="WeeklyExpenseDetails">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeeklySav__UserD__44FF419A">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="WeeklySavings" Type="Self.WeeklySaving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="UserDataID" />
+      </Principal>
+      <Dependent Role="WeeklySavings">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_SaveMeTrackerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="DailyExpenses" EntityType="Self.DailyExpense" />
+    <EntitySet Name="LoginDetails" EntityType="Self.LoginDetail" />
+    <EntitySet Name="MonthlySavings" EntityType="Self.MonthlySaving" />
+    <EntitySet Name="RemoteWeeklyExpenseDetails" EntityType="Self.RemoteWeeklyExpenseDetail" />
+    <EntitySet Name="TotalSavings" EntityType="Self.TotalSaving" />
+    <EntitySet Name="UserDatas" EntityType="Self.UserData" />
+    <EntitySet Name="WeeklyExpenseDetails" EntityType="Self.WeeklyExpenseDetail" />
+    <EntitySet Name="WeeklySavings" EntityType="Self.WeeklySaving" />
+    <AssociationSet Name="FK__DailyExpe__Categ__3E52440B" Association="Self.FK__DailyExpe__Categ__3E52440B">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="DailyExpense" EntitySet="DailyExpenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MonthlySa__Categ__49C3F6B7" Association="Self.FK__MonthlySa__Categ__49C3F6B7">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="MonthlySavings" EntitySet="MonthlySavings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RemoteWee__Categ__5070F446" Association="Self.FK__RemoteWee__Categ__5070F446">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="RemoteWeeklyExpenseDetails" EntitySet="RemoteWeeklyExpenseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeeklyExp__Categ__4222D4EF" Association="Self.FK__WeeklyExp__Categ__4222D4EF">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="WeeklyExpenseDetails" EntitySet="WeeklyExpenseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeeklySav__Categ__45F365D3" Association="Self.FK__WeeklySav__Categ__45F365D3">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="WeeklySavings" EntitySet="WeeklySavings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DailyExpe__UserD__3D5E1FD2" Association="Self.FK__DailyExpe__UserD__3D5E1FD2">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="DailyExpense" EntitySet="DailyExpenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginDeta__UserD__38996AB5" Association="Self.FK__LoginDeta__UserD__38996AB5">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="LoginDetails" EntitySet="LoginDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MonthlySa__UserD__48CFD27E" Association="Self.FK__MonthlySa__UserD__48CFD27E">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="MonthlySavings" EntitySet="MonthlySavings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RemoteWee__UserD__4F7CD00D" Association="Self.FK__RemoteWee__UserD__4F7CD00D">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="RemoteWeeklyExpenseDetails" EntitySet="RemoteWeeklyExpenseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RemoteWee__Weekl__5165187F" Association="Self.FK__RemoteWee__Weekl__5165187F">
+      <End Role="WeeklyExpenseDetails" EntitySet="WeeklyExpenseDetails" />
+      <End Role="RemoteWeeklyExpenseDetails" EntitySet="RemoteWeeklyExpenseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TotalSavi__UserD__4CA06362" Association="Self.FK__TotalSavi__UserD__4CA06362">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="TotalSavings" EntitySet="TotalSavings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeeklyExp__UserD__412EB0B6" Association="Self.FK__WeeklyExp__UserD__412EB0B6">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="WeeklyExpenseDetails" EntitySet="WeeklyExpenseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeeklySav__UserD__44FF419A" Association="Self.FK__WeeklySav__UserD__44FF419A">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="WeeklySavings" EntitySet="WeeklySavings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

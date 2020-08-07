@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25362595d7f3483681d4b87d43d354b5" Name="Diagram1">
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.DailyExpense" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.LoginDetail" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.MonthlySaving" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.RemoteWeeklyExpenseDetail" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.TotalSaving" Width="1.5" PointX="3" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.UserData" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.WeeklyExpenseDetail" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_SaveMeTrackerModel.WeeklySaving" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__DailyExpe__Categ__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__MonthlySa__Categ__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__RemoteWee__Categ__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__WeeklyExp__Categ__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__WeeklySav__Categ__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__DailyExpe__UserD__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__LoginDeta__UserD__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__MonthlySa__UserD__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__RemoteWee__UserD__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__RemoteWee__Weekl__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__TotalSavi__UserD__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__WeeklyExp__UserD__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="db_SaveMeTrackerModel.FK__WeeklySav__UserD__44FF419A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
